@@ -52,7 +52,7 @@ services:
         ELK_VERSION: $ELK_VERSION
     volumes:
       - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro
-      - ./../wazuh/kibana/wazuh.yml:/usr/share/kibana/optimize/wazuh/config/wazuh.yml:ro
+      - ./../wazuh/kibana/wazuh.yml:/usr/share/kibana/optimize/wazuh/config/wazuh.yml:rw
     ports:
       - "5601:5601"
     environment:
