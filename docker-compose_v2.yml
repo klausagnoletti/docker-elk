@@ -31,7 +31,7 @@ services:
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
-      - /mnt/cache/appdata/docker-elk/appdata/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+      - /mnt/cache/appdata/docker-elk/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
       - /mnt/cache/appdata/docker-elk/logstash/pipeline:/usr/share/logstash/pipeline:ro
     ports:
       - "5000:5000/tcp"
