@@ -6,7 +6,7 @@ services:
     build:
       context: elasticsearch/
       args:
-        ELK_VERSION: $ELK_VERSION
+        ELK_VERSION: 7.6.2
     volumes:
       - /mnt/cache/appdata/docker-elk/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - elasticsearch:/usr/share/elasticsearch/data
@@ -29,7 +29,7 @@ services:
     build:
       context: logstash/
       args:
-        ELK_VERSION: $ELK_VERSION
+        ELK_VERSION: 7.6.2
     volumes:
       - /mnt/cache/appdata/docker-elk/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
       - /mnt/cache/appdata/docker-elk/logstash/pipeline:/usr/share/logstash/pipeline:ro
@@ -49,7 +49,7 @@ services:
     build:
       context: kibana/
       args:
-        ELK_VERSION: $ELK_VERSION
+        ELK_VERSION: 7.6.2
     volumes:
       - /mnt/cache/appdata/docker-elk/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro
       - /mnt/cache/appdata/wazuh/kibana/wazuh.yml:/usr/share/kibana/optimize/wazuh/config/wazuh.yml:rw
