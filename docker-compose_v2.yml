@@ -8,7 +8,7 @@ services:
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
-      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - /mnt/cache/appdata/docker-elk/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - elasticsearch:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
@@ -31,8 +31,8 @@ services:
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
-      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
-      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+      - /mnt/cache/appdata/docker-elk/appdata/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+      - /mnt/cache/appdata/docker-elk/logstash/pipeline:/usr/share/logstash/pipeline:ro
     ports:
       - "5000:5000/tcp"
       - "5000:5000/udp"
@@ -51,8 +51,8 @@ services:
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
-      - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro
-      - ./../wazuh/kibana/wazuh.yml:/usr/share/kibana/optimize/wazuh/config/wazuh.yml:rw
+      - /mnt/cache/appdata/docker-elk/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro
+      - /mnt/cache/appdata/wazuh/kibana/wazuh.yml:/usr/share/kibana/optimize/wazuh/config/wazuh.yml:rw
     ports:
       - "5601:5601"
     environment:
